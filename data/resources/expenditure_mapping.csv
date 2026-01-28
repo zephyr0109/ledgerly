@@ -1,0 +1,74 @@
+priority,match_type,pattern,category,comment
+1,exact,지에스수퍼 김포한강자이점,식비,GS수퍼 고정 지점
+1,contains,GS수퍼,식비,GS수퍼 일반
+1,contains,지에스25,식비,GS25 편의점
+1,contains,씨유,편의,CU 편의점
+
+1,contains,홈플러스,식비,홈플러스 계열
+1,contains,롯데마트,식비,롯데마트
+1,exact,홈플러스강서사옥점,편의,사옥 편의매장
+
+1,contains,쿠팡이츠,외식,배달앱
+1,contains,우아한형제들,외식,배달의민족
+1,contains,인터넷상거래_2,쇼핑,온라인 결제
+1,contains,KCP,쇼핑,결제대행
+1,contains,이니시스,쇼핑,결제대행
+1,contains,NICE결제대행,쇼핑,결제대행
+
+1,contains,쿠팡,쇼핑,쿠팡 일반
+1,contains,네이버페이,쇼핑,네이버페이 일반
+1,contains,네이버플러스,문화,멤버십
+
+1,contains,NETFLIX,문화,넷플릭스
+1,contains,웨이브,문화,OTT
+1,contains,APPLE,문화,애플 컨텐츠
+1,contains,구글플레이,문화,구글 콘텐츠
+
+1,contains,스타벅스,간식,카페
+1,contains,투썸플레이스,간식,카페
+1,contains,파리바게트,간식,베이커리
+1,contains,파리바게뜨,간식,베이커리
+1,contains,매머드익스프레스,간식,카페
+1,contains,자판기,간식,자판기
+
+1,contains,병원,의료,병원
+1,contains,의원,의료,의원
+1,contains,약국,의료,약국
+
+1,contains,SK텔레콤,통신,통신비
+1,contains,SK브로드밴드,통신,인터넷
+
+1,contains,버스,교통,대중교통
+1,contains,지하철,교통,대중교통
+1,contains,터널,교통,도로비
+1,contains,도로,교통,도로비
+1,contains,주유소,교통,주유
+
+1,contains,도시가스,공과금,공과금
+1,contains,자동차세,공과금,세금
+1,exact,관리비,관리비,아파트 관리비
+
+1,contains,보험,보험,보험료
+1,contains,손해보험,보험,보험사
+
+1,contains,적금,저축,적금
+1,contains,청약,저축,청약
+1,contains,저축,저축,저축 일반
+
+1,contains,주담대,대출이자,주택담보대출
+1,contains,학자금,대출이자,학자금대출
+
+1,contains,육아,육아,육아 지출
+1,contains,분유,육아,육아
+1,contains,아기,육아,육아용품
+1,contains,기저귀,육아,육아용품
+
+1,contains,투자,투자,투자금
+1,contains,펀드,투자,펀드
+1,contains,주식,투자,주식
+
+1,contains,용돈,용돈,용돈
+
+1,contains,경조사,경조사,경조비
+
+9,regex,.*,기타,미분류 fallback

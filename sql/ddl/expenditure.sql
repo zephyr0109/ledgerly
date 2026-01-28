@@ -7,8 +7,8 @@ CREATE TABLE expenditure (
     -- 결제 수단
     payment_type TEXT NOT NULL,
 
-    -- 카드사 (카드 결제일 때만)
-    card_company TEXT,
+    -- 결제 제공자 (카드사, 은행, 지역화폐제공 등)
+    payment_provider TEXT,
 
     -- 사용처
     merchant_name TEXT NOT NULL,
