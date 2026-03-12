@@ -71,4 +71,15 @@ priority,match_type,pattern,category,comment
 
 1,contains,경조사,경조사,경조비
 
+1,exact,예스이십사도서_문화비,문화,YES24 문화비
+1,exact,(주)딜리유통,식비,딜리유통 식자재
+1,exact,NICE 결제대행_4,기타,NICE 결제대행
+1,exact,(주)해브펀,간식,해브펀 간식
+1,contains,통닭신사,외식,통닭신사 김포장기
+1,contains,메가MGC커피,간식,메가커피 김포금빛초
+1,contains,세븐일레븐,편의,세븐일레븐 센트럴자이
+1,exact,법원행정처,공과금,법원행정처 납부
+1,exact,KICC(서울시현장),공과금,서울시 현장 결제
+1,contains,이비인후과,의료,이비인후과
+
 9,regex,.*,기타,미분류 fallback

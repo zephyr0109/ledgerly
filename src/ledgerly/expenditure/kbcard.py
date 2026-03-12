@@ -58,8 +58,13 @@ def map_kb_card_df_to_expenditure(df: pd.DataFrame) -> pd.DataFrame:
         lambda x : "single" if x == "일시불" else "installment"
     )
 
+
     #금액 계산
      # 금액 계산 (국내 우선, 해외는 환율 적용)
+    df.loc[df["상태"] == "승인취소", "국내이용금액(원)"] *= -1
+    df.loc[df["상태"] == "승인취소", "해외이용금액($)"] *= -1
+
+
     domestic = pd.to_numeric(
         df["국내이용금액(원)"],
         errors="coerce"
@@ -86,7 +91,6 @@ def map_kb_card_df_to_expenditure(df: pd.DataFrame) -> pd.DataFrame:
     mapped_df["memo"] = None
 
     # 원본 식별자
-
     mapped_df["source_uid"] = (
         kbcard_config["payment_type"]
         + "_"
