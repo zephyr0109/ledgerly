@@ -11,3 +11,4 @@ wheels/
 
 data/db/*
 data/raw/*
+data/output/*

@@ -16,15 +16,23 @@ shinhan_config ={
     "card_company": "shinhan",
 }
 
+cash_config = {
+    "payment_type": "cash",
+    "payment_provider": "cash", # 기본값
+}
+
 # 데이터 파일 경로 설정
 kbcard_file_config = {
     "data_dir": find_project_root(Path.cwd()) / "data" / "raw",
-    "kb_card_xls": find_project_root(Path.cwd()) / "data" / "raw" / "kbcard.xls",
     "project_root": find_project_root(Path.cwd())
 }
 
 shinhan_file_config = {
     "data_dir": find_project_root(Path.cwd()) / "data" / "raw",
-    "shinhan_xls": find_project_root(Path.cwd()) / "data" / "raw" / "shinhancard.xls",
+    "project_root": find_project_root(Path.cwd())
+}
+
+cash_file_config = {
+    "data_dir": find_project_root(Path.cwd()) / "data" / "raw",
     "project_root": find_project_root(Path.cwd())
 }
