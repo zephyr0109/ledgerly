@@ -7,24 +7,37 @@ def get_asset_report_dates(report_date):
     Get previous and year-start dates for assets and debts.
     """
     with get_connection() as conn:
-        asset_prev_date = pd.read_sql_query(
-            "SELECT MAX(snapshot_date) FROM asset_snapshot WHERE snapshot_date < ?",
+        # Asset dates
+        asset_current_date = pd.read_sql_query(
+            "SELECT MAX(snapshot_date) FROM asset_snapshot WHERE snapshot_date <= ?",
             conn, params=(report_date,)
         ).iloc[0, 0]
+        
+        asset_prev_date = pd.read_sql_query(
+            "SELECT MAX(snapshot_date) FROM asset_snapshot WHERE snapshot_date < ?",
+            conn, params=(asset_current_date,) if asset_current_date else (report_date,)
+        ).iloc[0, 0]
 
+        year_val = asset_current_date[:4] if asset_current_date else report_date[:4]
         asset_year_start_date = pd.read_sql_query(
-            "SELECT MIN(snapshot_date) FROM asset_snapshot WHERE strftime('%Y', snapshot_date) = strftime('%Y', ?)",
+            "SELECT MIN(snapshot_date) FROM asset_snapshot WHERE strftime('%Y', snapshot_date) = ?",
+            conn, params=(year_val,)
+        ).iloc[0, 0]
+
+        # Debt dates
+        debt_current_date = pd.read_sql_query(
+            "SELECT MAX(snapshot_date) FROM debt_snapshot WHERE snapshot_date <= ?",
             conn, params=(report_date,)
         ).iloc[0, 0]
 
         debt_prev_date = pd.read_sql_query(
             "SELECT MAX(snapshot_date) FROM debt_snapshot WHERE snapshot_date < ?",
-            conn, params=(report_date,)
+            conn, params=(debt_current_date,) if debt_current_date else (report_date,)
         ).iloc[0, 0]
 
         debt_year_start_date = pd.read_sql_query(
-            "SELECT MIN(snapshot_date) FROM debt_snapshot WHERE strftime('%Y', snapshot_date) = strftime('%Y', ?)",
-            conn, params=(report_date,)
+            "SELECT MIN(snapshot_date) FROM debt_snapshot WHERE strftime('%Y', snapshot_date) = ?",
+            conn, params=(debt_current_date[:4] if debt_current_date else report_date[:4],)
         ).iloc[0, 0]
 
     return asset_prev_date, asset_year_start_date, debt_prev_date, debt_year_start_date

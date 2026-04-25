@@ -11,7 +11,7 @@ from .config import (
 )
 from .database import fetch_expenditure_data, insert_expenditure_data
 from .kbcard import map_kb_card_df_to_expenditure, preprocess_kbcard_data
-from .shinhan import map_shinhan_card_df_to_expenditure, preprocess_shinhan_data
+from .shinhan import map_shinhan_card_df_to_expenditure, preprocess_shinhan_data, load_shinhan_html_file
 from .cash import map_cash_df_to_expenditure, preprocess_cash_data
 
 __all__ = [
@@ -28,6 +28,7 @@ __all__ = [
     "preprocess_kbcard_data",
     "map_shinhan_card_df_to_expenditure",
     "preprocess_shinhan_data",
+    "load_shinhan_html_file",
     "map_cash_df_to_expenditure",
     "preprocess_cash_data",
 ]

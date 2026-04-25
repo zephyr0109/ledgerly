@@ -12,3 +12,5 @@ wheels/
 data/db/*
 data/raw/*
 data/output/*
+
+ai_docs/*

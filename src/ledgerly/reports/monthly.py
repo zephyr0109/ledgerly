@@ -36,9 +36,17 @@ def generate_monthly_report_content(start_date, end_date, report_year_month):
     expense_summary_df = get_expense_summary(start_date, end_date)
     income_summary_df = get_income_summary(start_date, end_date)
 
-    total_expense = expense_summary_df.sum(numeric_only=True)["total_amount"]
-    total_income = income_summary_df.sum(numeric_only=True)["total_income"]
-    expense_excluding_invest = expense_summary_df[~expense_summary_df["category"].isin(["저축", "투자"])].sum(numeric_only=True)["total_amount"]
+    # 데이터가 없는 경우를 대비하여 안전하게 합계 계산
+    expense_sum = expense_summary_df.sum(numeric_only=True)
+    total_expense = expense_sum.get("total_amount", 0)
+
+    income_sum = income_summary_df.sum(numeric_only=True)
+    total_income = income_sum.get("total_income", 0)
+
+    expense_excluding_invest_df = expense_summary_df[~expense_summary_df["category"].isin(["저축", "투자"])]
+    expense_excluding_invest_sum = expense_excluding_invest_df.sum(numeric_only=True)
+    expense_excluding_invest = expense_excluding_invest_sum.get("total_amount", 0)
+
     net_profit = total_income - total_expense
     adjusted_net = total_income - expense_excluding_invest
 
